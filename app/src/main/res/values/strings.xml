@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">JeDerV1</string>
+    <string name="historybutton">HistoryButton</string>
+    <string name="gallerybutton">GalleryButton</string>
+    <string name="camerabutton">CameraButton</string>
+    <string name="intro">Jendela Resep - JeDer is an application to scan food from your camera and it will give you the details of the food</string>
+    <string name="camera">Let\'s Take A Pic\'</string>
+    <string name="upload">Upload</string>
+    <string name="open_gallery">Open Gallery</string>
+</resources>
