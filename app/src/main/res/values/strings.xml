@@ -6,5 +6,11 @@
     <string name="intro">Jendela Resep - JeDer is an application to scan food from your camera and it will give you the details of the food</string>
     <string name="camera">Let\'s Take A Pic\'</string>
     <string name="upload">Upload</string>
+    <string name="Welcome">Welcome</string>
     <string name="open_gallery">Open Gallery</string>
+    <string name="dateofpicture">dateofpicture</string>
+    <string name="foodname">foodname</string>
+    <string name="gallery">Gallery</string>
+    <string name="home">Home</string>
+    <string name="cameraicon">Camera</string>
 </resources>
