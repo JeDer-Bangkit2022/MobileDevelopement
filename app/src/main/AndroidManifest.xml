@@ -20,6 +20,9 @@
 
             <data android:scheme="https" />
         </intent>
+        <intent>
+            <action android:name="com.google.android.youtube.api.service.START" />
+        </intent>
     </queries>
 
     <application
@@ -30,19 +33,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JeDerV1">
         <activity
-            android:theme="@style/Theme.JeDerV1ActionBar"
-            android:label="Food You Scanned"
-            android:name=".history.HistoryActivity"
+            android:name=".details.DetailActivity"
             android:exported="false" />
+        <activity
+            android:name=".history.HistoryActivity"
+            android:exported="false"
+            android:label="Food You Scanned" />
         <activity
             android:name=".upload.GalleryUpload"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Get From Gallery" />
         <activity
             android:name=".upload.CameraUpload"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Take A Picture" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:label="Welcome To Jendela Resep">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

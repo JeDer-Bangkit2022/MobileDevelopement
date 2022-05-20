@@ -13,4 +13,11 @@
     <string name="gallery">Gallery</string>
     <string name="home">Home</string>
     <string name="cameraicon">Camera</string>
+    <string name="take_a_picture">Take A Picture</string>
+    <string name="header">header</string>
+    <string name="logo">Logo</string>
+    <string name="get_from_gallery">Get From Gallery</string>
+    <string name="see_history">See History</string>
+    <string name="recipes">Recipes</string>
+    <string name="foodpic">foodpic</string>
 </resources>

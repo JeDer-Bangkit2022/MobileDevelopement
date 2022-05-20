@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    >
+    android:background="@drawable/rectangle1">
 
     <ImageView
         android:id="@+id/foodpic"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:src="@drawable/dummyphotos"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        android:layout_margin="16dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars[0]"
+        android:contentDescription="@string/foodpic" />
 
     <TextView
         android:id="@+id/foodname"
@@ -21,22 +24,33 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:text="@string/foodname"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/foodpic"
-        app:layout_constraintStart_toStartOf="@+id/foodpic"
-        app:layout_constraintTop_toBottomOf="@+id/foodpic" />
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/foodpic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/foodpic"
+        app:layout_constraintTop_toTopOf="@+id/foodpic" />
 
     <TextView
         android:id="@+id/dateofpic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:textColor="@color/black"
         android:text="@string/dateofpicture"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="@color/white"
+        android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="@+id/foodname"
         app:layout_constraintStart_toStartOf="@+id/foodname"
         app:layout_constraintTop_toBottomOf="@+id/foodname" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_margin="16dp"
+        android:background="@drawable/ic_baseline_delete_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="red">#BE0A0B</color>
-    <color name="red2">#F53D29</color>
-    <color name="background">#B8D2E2</color>
-    <color name="krem">#EBEA82</color>
-    <color name="yellow">#FFEB3B</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="transparent">#00FFFFFF</color>
-
+    <color name="primaryColor">#ff0000</color>
+    <color name="primaryLightColor">#ff5a36</color>
+    <color name="primaryDarkColor">#c20000</color>
+    <color name="secondaryColor">#ffff00</color>
+    <color name="secondaryLightColor">#ffff5a</color>
+    <color name="secondaryDarkColor">#c7cc00</color>
+    <color name="primaryTextColor">#000000</color>
+    <color name="secondaryTextColor">#000000</color>
 </resources>
