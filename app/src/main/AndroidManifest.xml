@@ -27,8 +27,8 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:icon="@drawable/jendelaresep"
+        android:label="Jendela Resep"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.JeDerV1">
@@ -49,8 +49,7 @@
             android:label="Take A Picture" />
         <activity
             android:name=".MainActivity"
-            android:exported="true"
-            android:label="Welcome To Jendela Resep">
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

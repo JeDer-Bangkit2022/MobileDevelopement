@@ -29,7 +29,8 @@
         android:text="@string/open_gallery"
         android:textColor="@color/white"
         android:textStyle="bold"
-        android:background="@color/primaryDarkColor"
+        android:backgroundTint="@color/primaryDarkColor"
+        android:background="@drawable/rectangle2"
         app:layout_constraintBottom_toTopOf="@+id/uploadButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -42,7 +43,8 @@
         android:text="@string/upload"
         android:textColor="@color/white"
         android:textStyle="bold"
-        android:background="@color/primaryDarkColor"
+        android:backgroundTint="@color/primaryDarkColor"
+        android:background="@drawable/rectangle2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
