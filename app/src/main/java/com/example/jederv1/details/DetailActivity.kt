@@ -18,11 +18,31 @@ class DetailActivity : YouTubeBaseActivity() {
         val recipe = findViewById<TextView>(R.id.recipedetail)
         val ytPlayer = findViewById<YouTubePlayerView>(R.id.ytPlayer)
         val text =
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at metus dictum, volutpat neque non, dignissim leo. Praesent at neque sed eros scelerisque rhoncus. Fusce eu nunc eu mi posuere posuere a non erat. Duis dignissim odio ex, eu lobortis diam imperdiet vel. Donec eros justo, sagittis congue vulputate id, ultricies non neque. Integer hendrerit lobortis justo, sit amet commodo metus aliquet eget. Vivamus porta posuere orci, eget eleifend tortor consectetur a. Aliquam tortor ipsum, hendrerit non risus ac, eleifend efficitur magna. Donec tincidunt euismod orci, id convallis augue placerat ac. \nVestibulum vitae venenatis dolor, a posuere est. Aenean vitae vestibulum lectus. Fusce nec tellus eleifend metus ultrices vestibulum. Suspendisse sollicitudin, neque et tempor tempor, tellus libero sollicitudin lacus, ullamcorper maximus est urna non nisi. In convallis egestas lacus, vitae tempus nisi consequat ut. Suspendisse potenti. Praesent porta, eros id semper volutpat, tellus augue rhoncus diam, eu varius eros nisi non diam. Phasellus nec sem molestie, lacinia neque id, ultricies lorem. \nMorbi ornare rutrum nibh, quis pharetra dui faucibus quis. Vivamus vel ex lacus. Sed rutrum risus vitae sapien fringilla fermentum. Fusce gravida, lorem eu sagittis mollis, quam quam hendrerit massa, quis placerat dui elit sit amet arcu. Proin bibendum tincidunt est sit amet elementum..Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at metus dictum, volutpat neque non, dignissim leo. Praesent at neque sed eros scelerisque rhoncus. Fusce eu nunc eu mi posuere posuere a non erat. " +
-                    "\nDuis dignissim odio ex, eu lobortis diam imperdiet vel. Donec eros justo, sagittis congue vulputate id, ultricies non neque. Integer hendrerit lobortis justo, sit amet commodo metus aliquet eget. Vivamus porta posuere orci, eget eleifend tortor consectetur a. Aliquam tortor ipsum, hendrerit non risus ac, eleifend efficitur magna. Donec tincidunt euismod orci, id convallis augue placerat ac. Vestibulum vitae venenatis dolor, a posuere est. Aenean vitae vestibulum lectus. Fusce nec tellus eleifend metus ultrices vestibulum. Suspendisse sollicitudin, neque et tempor tempor, tellus libero sollicitudin lacus, ullamcorper maximus est urna non nisi. In convallis egestas lacus, vitae tempus nisi consequat ut. Suspendisse potenti. Praesent porta, eros id semper volutpat, tellus augue rhoncus diam, eu varius eros nisi non diam. Phasellus nec sem molestie, lacinia neque id, ultricies lorem. Morbi ornare rutrum nibh, quis pharetra dui faucibus quis. Vivamus vel ex lacus. Sed rutrum risus vitae sapien fringilla fermentum. Fusce gravida, lorem eu sagittis mollis, quam quam hendrerit massa, quis placerat dui elit sit amet arcu. Proin bibendum tincidunt est sit amet elementum." +
-                    "Vivamus vel ex lacus. Sed rutrum risus vitae sapien fringilla fermentum. Fusce gravida, lorem eu sagittis mollis, quam quam hendrerit massa, quis placerat dui elit sit amet arcu. Proin bibendum tincidunt est sit amet elementum..Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at metus dictum, volutpat neque non, dignissim leo. Praesent at neque sed eros scelerisque rhoncus. Fusce eu nunc eu mi posuere posuere a non erat. \n" +
-                    "Vivamus vel ex lacus. Sed rutrum risus vitae sapien fringilla fermentum. Fusce gravida, lorem eu sagittis mollis, quam quam hendrerit massa, quis placerat dui elit sit amet arcu. Proin bibendum tincidunt est sit amet elementum..Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at metus dictum, volutpat neque non, dignissim leo. Praesent at neque sed eros scelerisque rhoncus. Fusce eu nunc eu mi posuere posuere a non erat. \n" +
-                    "Vivamus vel ex lacus. Sed rutrum risus vitae sapien fringilla fermentum. Fusce gravida, lorem eu sagittis mollis, quam quam hendrerit massa, quis placerat dui elit sit amet arcu. Proin bibendum tincidunt est sit amet elementum..Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at metus dictum, volutpat neque non, dignissim leo. Praesent at neque sed eros scelerisque rhoncus. Fusce eu nunc eu mi posuere posuere a non erat. "
+            "\n\nBahan:\n" +
+                    "- 1 ekor ayam kampung, potong 4 bagian\n" +
+                    "- 4 butir telur rebus\n" +
+                    "- 1 batang serai, memarkan\n" +
+                    "- 3 cm lengkuas, memarkan\n" +
+                    "- 1 lbr daun salam\n" +
+                    "- 2 lbr daun jeruk purut\n" +
+                    "- 1 sdt garam\n" +
+                    "- 1 sdt gula pasir\n" +
+                    "- 500 ml santan kental\n" +
+                    "- 500 ml air\n" +
+                    "- 3 sdm minyak goreng untuk menumis\n" +
+                    "Bumbu halus:\n" +
+                    "- 8 butir bawang merah\n" +
+                    "- 3 siung bawang putih\n" +
+                    "- 4 buah kemiri sangrai\n" +
+                    "- 1 sdt ketumbar bubuk\n" +
+                    "- 1/2 sdt jintan bubuk\n" +
+                    "- 1/2 sdt merica bubuk\n" +
+                    "- 2 cm jahe\n" +
+                    "Cara membuat:\n" +
+                    "1. Lumuri ayam dengan air perasan jeruk nipis dan 1 sdt garam, diamkan 15 menit, lalu cuci bersih.\n" +
+                    "2. Tumis bumbu halus, serai, lengkuas, daun salam dan daun jeruk purut sampai harum, masukkan ayam. Setelah kaku dan berubah warna, tuang air, masak sampai ayam empuk.\n" +
+                    "3. Setelah air berkurang, masukkan santan dan telur rebus, masak sambil sesekali diaduk. Masak sampai kuah mendidih kembali dan bumbu meresap.\n" +
+                    "4. Angkat. Sajikan dengan taburan bawang goreng.\n\n"
         recipe.text = text
         recipe.movementMethod = ScrollingMovementMethod()
         ytPlayer.initialize(apikey, object : YouTubePlayer.OnInitializedListener {

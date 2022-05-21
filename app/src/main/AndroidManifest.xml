@@ -31,19 +31,23 @@
         android:label="Jendela Resep"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.JeDerV1">
+        android:theme="@style/Theme.JeDerV1.NoActionBar">
         <activity
+            android:theme="@style/Theme.JeDerV1"
             android:name=".details.DetailActivity"
             android:exported="false" />
         <activity
+            android:theme="@style/Theme.JeDerV1"
             android:name=".history.HistoryActivity"
             android:exported="false"
             android:label="Food You Scanned" />
         <activity
+            android:theme="@style/Theme.JeDerV1"
             android:name=".upload.GalleryUpload"
             android:exported="false"
             android:label="Get From Gallery" />
         <activity
+            android:theme="@style/Theme.JeDerV1"
             android:name=".upload.CameraUpload"
             android:exported="false"
             android:label="Take A Picture" />

@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        Glide.with(this).load(R.drawable.jendelaresep2).into(binding.imageView2)
+//        Glide.with(this).load(R.drawable.jendelaresep2).into(binding.imageView2)
         setupButton()
     }
 
