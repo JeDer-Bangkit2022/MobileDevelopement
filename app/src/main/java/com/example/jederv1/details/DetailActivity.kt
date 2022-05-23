@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
 import android.widget.TextView
 import android.widget.Toast
-import com.example.jederv1.BuildConfig
 import com.example.jederv1.R
 import com.google.android.youtube.player.YouTubeBaseActivity
 import com.google.android.youtube.player.YouTubeInitializationResult
@@ -12,14 +11,14 @@ import com.google.android.youtube.player.YouTubePlayer
 import com.google.android.youtube.player.YouTubePlayerView
 
 class DetailActivity : YouTubeBaseActivity() {
-    private val apikey = BuildConfig.API_KEY
+    private val apikey = "APIKEY"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
         val recipe = findViewById<TextView>(R.id.recipedetail)
         val ytPlayer = findViewById<YouTubePlayerView>(R.id.ytPlayer)
         val text =
-            "Bahan:\n" +
+            "\n\nBahan:\n" +
                     "- 1 ekor ayam kampung, potong 4 bagian\n" +
                     "- 4 butir telur rebus\n" +
                     "- 1 batang serai, memarkan\n" +
@@ -52,7 +51,7 @@ class DetailActivity : YouTubeBaseActivity() {
                 player: YouTubePlayer?,
                 p2: Boolean
             ) {
-                player?.loadVideo("LmBYPXGqtss")
+                player?.loadVideo("xtjJ9IthuT0")
                 player?.play()
             }
 

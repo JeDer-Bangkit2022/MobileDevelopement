@@ -27,30 +27,30 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/logo7"
+        android:icon="@drawable/jendelaresep"
         android:label="Jendela Resep"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.JeDerV1.NoActionBar">
         <activity
+            android:theme="@style/Theme.JeDerV1"
             android:name=".details.DetailActivity"
-            android:exported="false"
-            android:theme="@style/Theme.JeDerV1" />
+            android:exported="false" />
         <activity
+            android:theme="@style/Theme.JeDerV1"
             android:name=".history.HistoryActivity"
             android:exported="false"
-            android:label="Food You Scanned"
-            android:theme="@style/Theme.JeDerV1" />
+            android:label="Food You Scanned" />
         <activity
+            android:theme="@style/Theme.JeDerV1"
             android:name=".upload.GalleryUpload"
             android:exported="false"
-            android:label="Get From Gallery"
-            android:theme="@style/Theme.JeDerV1" />
+            android:label="Get From Gallery" />
         <activity
+            android:theme="@style/Theme.JeDerV1"
             android:name=".upload.CameraUpload"
             android:exported="false"
-            android:label="Take A Picture"
-            android:theme="@style/Theme.JeDerV1" />
+            android:label="Take A Picture" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -70,7 +70,6 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
-
     </application>
 
 </manifest>
