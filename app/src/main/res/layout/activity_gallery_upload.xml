@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
+    android:background="@drawable/backgroundgradient"
     tools:context=".upload.GalleryUpload">
 
     <ImageView
@@ -12,9 +12,9 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_margin="16dp"
+        android:background="@drawable/rectangle1"
         android:contentDescription="@string/app_name"
         android:padding="8dp"
-        android:background="@drawable/rectangle1"
         app:layout_constraintBottom_toTopOf="@+id/GalleryButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,11 +26,11 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
+        android:background="@drawable/rectangle2"
+        android:backgroundTint="@color/primaryDarkColor"
         android:text="@string/open_gallery"
         android:textColor="@color/white"
         android:textStyle="bold"
-        android:backgroundTint="@color/primaryDarkColor"
-        android:background="@drawable/rectangle2"
         app:layout_constraintBottom_toTopOf="@+id/uploadButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -40,11 +40,11 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
+        android:background="@drawable/rectangle2"
+        android:backgroundTint="@color/secondaryColor"
         android:text="@string/upload"
         android:textColor="@color/black"
         android:textStyle="bold"
-        android:backgroundTint="@color/secondaryColor"
-        android:background="@drawable/rectangle2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
