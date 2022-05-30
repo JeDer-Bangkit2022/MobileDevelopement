@@ -20,4 +20,14 @@
     <string name="see_history">See History</string>
     <string name="recipes">Recipes</string>
     <string name="foodpic">foodpic</string>
+    <string name="nama">Name</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="registerTop">REGISTER</string>
+    <string name="welcome_text">Welcome to Jendela Resep</string>
+    <string name="login_text">Login</string>
+    <string name="register_text">Register</string>
+    <string name="loginTop">LOGIN</string>
+    <string name="warning">Need to be 6 char or more</string>
+    <string name="logout">Logout</string>
 </resources>

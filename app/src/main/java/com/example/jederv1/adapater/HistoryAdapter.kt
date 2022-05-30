@@ -1,21 +1,31 @@
 package com.example.jederv1.adapater
 
+import android.provider.ContactsContract
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.jederv1.databinding.ItemsCardBinding
+import com.example.jederv1.entity.FoodModel
 
 
-class HistoryAdapter(private val dummy: List<DataDummy>) :
+class HistoryAdapter :
     RecyclerView.Adapter<HistoryAdapter.ListViewHolder>() {
     private lateinit var binding: ItemsCardBinding
     private lateinit var onItemClickCallback: OnItemClickCallback
 
+    private var listFood = ArrayList<FoodModel>()
+        set(listNotes) {
+            if (listNotes.size > 0) {
+                this.listFood.clear()
+            }
+            this.listFood.addAll(listNotes)
+        }
+
     class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
     interface OnItemClickCallback {
-        fun onItemClicked(data: DataDummy)
+        fun onItemClicked(selectedFoodModel: FoodModel, position: Int?)
     }
 
     fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
@@ -28,28 +38,12 @@ class HistoryAdapter(private val dummy: List<DataDummy>) :
     }
 
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
-        val history = dummy[position]
-        with(binding) {
+        val history = listFood[position]
+        with(binding){
             foodname.text = history.name
-            dateofpic.text = history.date
-            Glide.with(binding.root.context)
-                .load(history.pic)
-                .circleCrop()
-                .into(foodpic)
-            root.setOnClickListener {
-                onItemClickCallback.onItemClicked(history)
-            }
-        }
-        holder.itemView.setOnClickListener {
-            onItemClickCallback.onItemClicked(dummy[holder.adapterPosition])
         }
     }
 
-    override fun getItemCount(): Int = dummy.size
+    override fun getItemCount(): Int = this.listFood.size
 }
 
-data class DataDummy(
-    val name: String,
-    val date: String,
-    val pic: Int
-)

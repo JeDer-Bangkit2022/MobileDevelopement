@@ -27,11 +27,20 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/logo7"
+        android:icon="@drawable/logo11"
         android:label="Jendela Resep"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.JeDerV1.NoActionBar">
+        <activity
+            android:name=".login.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".welcome.WelcomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".register.RegisterActivity"
+            android:exported="false" />
         <activity
             android:name=".details.DetailActivity"
             android:exported="false"
@@ -70,7 +79,6 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
-
     </application>
 
 </manifest>

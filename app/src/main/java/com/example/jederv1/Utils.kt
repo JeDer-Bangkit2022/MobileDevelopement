@@ -92,8 +92,6 @@ fun reduceFileImage(file: File): File {
         streamLength = bmpPicByteArray.size
         compressQuality -= 5
     } while (streamLength > 1000000)
-
     bitmap.compress(Bitmap.CompressFormat.JPEG, compressQuality, FileOutputStream(file))
-
     return file
 }
