@@ -24,7 +24,6 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:background="@drawable/rectangle2"
-
         android:contentDescription="@string/historybutton"
         android:padding="20dp"
         android:text="@string/see_history"

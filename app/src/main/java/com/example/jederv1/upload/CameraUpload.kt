@@ -7,6 +7,7 @@ import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
@@ -14,11 +15,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
-import com.example.jederv1.databinding.ActivityCameraUploadBinding
-import com.example.jederv1.*
+import com.example.jederv1.ResultActivity
 import com.example.jederv1.api.ApiConfig
 import com.example.jederv1.api.FileUploadResponse
-import com.example.jederv1.details.DetailActivity
+import com.example.jederv1.createTempFile
+import com.example.jederv1.databinding.ActivityCameraUploadBinding
+import com.example.jederv1.reduceFileImage
+import com.example.jederv1.rotateBitmap
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
@@ -76,7 +79,7 @@ class CameraUpload : AppCompatActivity() {
             startTakePhoto()
         }
         binding.uploadButton.setOnClickListener {
-            uploadImage()
+//            uploadImage()
         }
     }
 
@@ -108,6 +111,7 @@ class CameraUpload : AppCompatActivity() {
     }
 
     private fun uploadImage() {
+        showLoading(true)
         if (getFile != null) {
             val file = reduceFileImage(getFile as File)
             val requestImageFile = file.asRequestBody("image/jpeg".toMediaTypeOrNull())
@@ -120,7 +124,7 @@ class CameraUpload : AppCompatActivity() {
             val token = bundle?.getString("token")
 
             token?.let {
-                ApiConfig().getApiService().uploadImage("Bearer $it",imageMultipart)
+                ApiConfig().getApiService().uploadImage("Bearer $it", imageMultipart)
             }
                 ?.enqueue(object : Callback<FileUploadResponse> {
                     override fun onResponse(
@@ -128,20 +132,27 @@ class CameraUpload : AppCompatActivity() {
                         response: Response<FileUploadResponse>
                     ) {
                         if (response.isSuccessful) {
-                            val responseBody = response.body()
-                            if (responseBody != null && responseBody.success) {
-                                val result = responseBody.fnlResult.result
-                                val recipe = responseBody.fnlResult.recipe
-                                val ytCode = responseBody.fnlResult.ytCode
+                            showLoading(false)
+                            val res = response.body()
+                            if (res != null && res.success) {
+                                val result = res.result
+                                val resAcc = res.resultAccuracy
+                                val imageUrl = res.imageUrl
+                                val recipe = res.recipe
+                                val desc = res.description
+                                val ytCode = res.ytCode
                                 AlertDialog.Builder(this@CameraUpload).apply {
                                     setTitle("Yeah!")
                                     setMessage("Anda berhasil upload.")
                                     setPositiveButton("Lanjut") { _, _ ->
-                                        val intent = Intent(context, DetailActivity::class.java)
+                                        val intent = Intent(context, ResultActivity::class.java)
                                         val tokenformain = Bundle()
                                         tokenformain.putString("token", token)
                                         tokenformain.putString("result", result)
+                                        tokenformain.putString("resAcc", resAcc)
+                                        tokenformain.putString("imageUrl", imageUrl)
                                         tokenformain.putString("recipe", recipe)
+                                        tokenformain.putString("desc", desc)
                                         tokenformain.putString("ytCode", ytCode)
                                         intent.flags =
                                             Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
@@ -180,5 +191,12 @@ class CameraUpload : AppCompatActivity() {
         }
     }
 
+    private fun showLoading(state: Boolean) {
+        if (state) {
+            binding.progressBar.visibility = View.VISIBLE
+        } else {
+            binding.progressBar.visibility = View.INVISIBLE
+        }
+    }
 
 }

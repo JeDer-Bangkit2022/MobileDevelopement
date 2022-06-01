@@ -3,7 +3,6 @@ package com.example.jederv1.api
 import com.google.gson.annotations.SerializedName
 import okhttp3.MultipartBody
 import okhttp3.OkHttpClient
-import okhttp3.RequestBody
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
 import retrofit2.Retrofit
@@ -13,19 +12,20 @@ import retrofit2.http.*
 data class FileUploadResponse(
     @field:SerializedName("success")
     val success: Boolean,
-    @field:SerializedName("fnlResult")
-    val fnlResult: FinalResult
-)
-
-data class FinalResult(
     @field:SerializedName("result")
     val result: String,
+    @field:SerializedName("resultAccuracy")
+    val resultAccuracy: String,
+    @field:SerializedName("imageUrl")
+    val imageUrl: String,
     @field:SerializedName("recipe")
     val recipe: String,
+    @field:SerializedName("description")
+    val description: String,
     @field:SerializedName("ytCode")
     val ytCode: String,
-
 )
+
 
 data class LoginResponse(
     @field:SerializedName("success")
@@ -58,6 +58,32 @@ data class User(
     val name: String,
 
     val islogin: Boolean
+)
+
+data class HistoryResponse(
+    @field:SerializedName("success")
+    val success: Boolean,
+    @field:SerializedName("count")
+    val count: Int,
+    @field:SerializedName("responData")
+    val responData: ArrayList<ResponData>,
+)
+
+data class ResponData(
+    @field:SerializedName("id")
+    val id: String,
+    @field:SerializedName("name")
+    val name: String,
+    @field:SerializedName("resultAccuracy")
+    val resultAccuracy: String,
+    @field:SerializedName("imageUrl")
+    val imageUrl: String,
+    @field:SerializedName("recipe")
+    val recipe: String,
+    @field:SerializedName("description")
+    val description: String,
+    @field:SerializedName("ytCode")
+    val ytCode: String,
 )
 
 class ApiConfig {
@@ -101,9 +127,12 @@ interface ApiService {
     ): Call<FileUploadResponse>
 
 
-//    val imageMultipart: MultipartBody.Part = MultipartBody.Part.createFormData(
-//        "photo",
-//        file.name,
-//        requestImageFile
-//    )
+    @GET("/prediction/history")
+    fun fetchHistories(
+        @Header("Authorization") token: String,
+    ): Call<HistoryResponse>
+
+
 }
+
+

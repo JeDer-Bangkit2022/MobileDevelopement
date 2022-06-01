@@ -5,17 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/backgroundgradient2"
-    tools:context=".details.DetailActivity">
+    tools:context=".ResultActivity">
 
-    <com.google.android.youtube.player.YouTubePlayerView
-        android:id="@+id/ytPlayer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageView
+        android:id="@+id/imagedesc"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
         android:layout_margin="16dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_photo_camera_24" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
@@ -28,16 +29,13 @@
         android:id="@+id/imageViewresep"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="0dp"
+        android:layout_margin="16dp"
         android:background="@drawable/backgroundresep2"
         android:backgroundTint="@color/primaryLightColor"
-        app:layout_constraintBottom_toTopOf="@+id/buttonhome"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ytPlayer" />
+        app:layout_constraintTop_toBottomOf="@+id/imagedesc" />
 
     <ScrollView
         android:id="@+id/scrollView2"
@@ -46,33 +44,44 @@
         android:layout_marginLeft="10dp"
         android:layout_marginTop="60dp"
         android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
         android:backgroundTint="@color/primaryLightColor"
-        app:layout_constraintBottom_toBottomOf="@+id/imageViewresep"
+        app:layout_constraintBottom_toTopOf="@+id/next"
         app:layout_constraintEnd_toEndOf="@+id/imageViewresep"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/imageViewresep"
-        app:layout_constraintTop_toTopOf="@+id/imageViewresep">
+        app:layout_constraintTop_toTopOf="@+id/imageViewresep"
+        app:layout_constraintVertical_bias="0.0">
+
         <TextView
-            android:id="@+id/recipedetail"
+            android:id="@+id/descripsi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/varela_round"
             android:scrollbars="vertical"
             android:text="@string/Welcome"
-            android:fontFamily="@font/varela_round"
             android:textColor="@color/white"
             android:textSize="18sp" />
     </ScrollView>
 
-    <Button
-        android:id="@+id/buttonhome"
+    <TextView
+        android:id="@+id/akurasi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/secondaryColor"
-        android:text="@string/go_to_home"
-        android:layout_marginBottom="10dp"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/Welcome"
+        app:layout_constraintBottom_toBottomOf="@+id/scrollView2"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:backgroundTint="@color/secondaryColor"
+        android:text="@string/DetailGo"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewresep"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -80,14 +89,33 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
+        android:fontFamily="@font/varela_round"
         android:text="@string/recipes"
         android:textColor="@color/white"
-        android:fontFamily="@font/varela_round"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/scrollView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ytPlayer" />
+        app:layout_constraintTop_toBottomOf="@+id/imagedesc" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="205dp" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/go_to_home"
+        android:backgroundTint="@color/secondaryColor"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/next"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline7" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

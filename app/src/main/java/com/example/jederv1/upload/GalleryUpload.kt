@@ -4,25 +4,23 @@ import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.example.jederv1.MainActivity
+import com.example.jederv1.ResultActivity
 import com.example.jederv1.api.ApiConfig
 import com.example.jederv1.api.FileUploadResponse
 import com.example.jederv1.databinding.ActivityGalleryUploadBinding
-import com.example.jederv1.details.DetailActivity
 import com.example.jederv1.reduceFileImage
 import com.example.jederv1.uriToFile
-import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
-import okhttp3.RequestBody.Companion.toRequestBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -59,6 +57,7 @@ class GalleryUpload : AppCompatActivity() {
             }
         }
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityGalleryUploadBinding.inflate(layoutInflater)
@@ -100,6 +99,7 @@ class GalleryUpload : AppCompatActivity() {
     }
 
     private fun uploadImage() {
+        showLoading(true)
         if (getFile != null) {
             val file = reduceFileImage(getFile as File)
 //            val description = "Test"
@@ -114,7 +114,7 @@ class GalleryUpload : AppCompatActivity() {
             val token = bundle?.getString("token")
 
             token?.let {
-                ApiConfig().getApiService().uploadImage("Bearer $it",imageMultipart)
+                ApiConfig().getApiService().uploadImage("Bearer $it", imageMultipart)
             }
                 ?.enqueue(object : Callback<FileUploadResponse> {
                     override fun onResponse(
@@ -122,20 +122,27 @@ class GalleryUpload : AppCompatActivity() {
                         response: Response<FileUploadResponse>
                     ) {
                         if (response.isSuccessful) {
-                            val responseBody = response.body()
-                            if (responseBody != null && responseBody.success) {
-                                val result = responseBody.fnlResult.result
-                                val recipe = responseBody.fnlResult.recipe
-                                val ytCode = responseBody.fnlResult.ytCode
+                            showLoading(false)
+                            val res = response.body()
+                            if (res != null && res.success) {
+                                val result = res.result
+                                val resAcc = res.resultAccuracy
+                                val imageUrl = res.imageUrl
+                                val recipe = res.recipe
+                                val desc = res.description
+                                val ytCode = res.ytCode
                                 AlertDialog.Builder(this@GalleryUpload).apply {
                                     setTitle("Yeah!")
                                     setMessage("Anda berhasil upload.")
                                     setPositiveButton("Lanjut") { _, _ ->
-                                        val intent = Intent(context, DetailActivity::class.java)
+                                        val intent = Intent(context, ResultActivity::class.java)
                                         val tokenformain = Bundle()
                                         tokenformain.putString("token", token)
                                         tokenformain.putString("result", result)
+                                        tokenformain.putString("resAcc", resAcc)
+                                        tokenformain.putString("imageUrl", imageUrl)
                                         tokenformain.putString("recipe", recipe)
+                                        tokenformain.putString("desc", desc)
                                         tokenformain.putString("ytCode", ytCode)
                                         intent.flags =
                                             Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
@@ -158,6 +165,7 @@ class GalleryUpload : AppCompatActivity() {
                     }
 
                     override fun onFailure(call: Call<FileUploadResponse>, t: Throwable) {
+                        showLoading(false)
                         Toast.makeText(
                             this@GalleryUpload,
                             "Gagal instance Retrofit",
@@ -166,11 +174,20 @@ class GalleryUpload : AppCompatActivity() {
                     }
                 })
         } else {
+            showLoading(false)
             Toast.makeText(
                 this@GalleryUpload,
                 "Silakan masukkan berkas gambar terlebih dahulu.",
                 Toast.LENGTH_SHORT
             ).show()
+        }
+    }
+
+    private fun showLoading(state: Boolean) {
+        if (state) {
+            binding.progressBar.visibility = View.VISIBLE
+        } else {
+            binding.progressBar.visibility = View.INVISIBLE
         }
     }
 

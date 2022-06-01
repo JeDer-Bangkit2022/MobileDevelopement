@@ -1,10 +1,14 @@
 package com.example.jederv1.details
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
+import android.util.Log
+import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import com.example.jederv1.BuildConfig
+import com.example.jederv1.MainActivity
 import com.example.jederv1.R
 import com.google.android.youtube.player.YouTubeBaseActivity
 import com.google.android.youtube.player.YouTubeInitializationResult
@@ -18,13 +22,21 @@ class DetailActivity : YouTubeBaseActivity() {
         setContentView(R.layout.activity_detail)
 
         val bundle = intent.extras
-        val ytCode = bundle?.getString("ytCode")
-        val result = bundle?.getString("result")
-        val recipes = bundle?.getString("recipe")
+        val ytCode = bundle?.getString("ytCode").toString()
+        val result = bundle?.getString("result").toString()
+        val recipes = bundle?.getString("recipe").toString()
+
+
 
         val judul = findViewById<TextView>(R.id.textViewjudul)
         val recipe = findViewById<TextView>(R.id.recipedetail)
         val ytPlayer = findViewById<YouTubePlayerView>(R.id.ytPlayer)
+        val home = findViewById<Button>(R.id.buttonhome)
+
+        home.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
         recipe.text = recipes
         recipe.movementMethod = ScrollingMovementMethod()
         judul.text = result

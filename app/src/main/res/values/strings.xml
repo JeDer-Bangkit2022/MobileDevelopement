@@ -30,4 +30,6 @@
     <string name="loginTop">LOGIN</string>
     <string name="warning">Need to be 6 char or more</string>
     <string name="logout">Logout</string>
+    <string name="DetailGo">Go To Details</string>
+    <string name="go_to_home">Go To Home</string>
 </resources>

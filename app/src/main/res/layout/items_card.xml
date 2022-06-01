@@ -37,7 +37,7 @@
         android:id="@+id/dateofpic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/lato"
+        android:fontFamily="@font/varela_round"
         android:text="@string/dateofpicture"
         android:textColor="@color/primaryTextColor"
         android:textStyle="italic"
