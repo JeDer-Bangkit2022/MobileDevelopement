@@ -84,6 +84,30 @@ data class ResponData(
     val description: String,
     @field:SerializedName("ytCode")
     val ytCode: String,
+    @field:SerializedName("timestamp")
+    val timestamp: String,
+)
+data class ResponseDelete(
+    @field:SerializedName("success")
+    val success: Boolean,
+    @field:SerializedName("msg")
+    val msg: String,
+)
+data class ResponDatabyID(
+    @field:SerializedName("success")
+    val success: Boolean,
+    @field:SerializedName("result")
+    val result: String,
+    @field:SerializedName("resultAccuracy")
+    val resultAccuracy: String,
+    @field:SerializedName("imageUrl")
+    val imageUrl: String,
+    @field:SerializedName("recipe")
+    val recipe: String,
+    @field:SerializedName("description")
+    val description: String,
+    @field:SerializedName("ytCode")
+    val ytCode: String,
 )
 
 class ApiConfig {
@@ -126,12 +150,22 @@ interface ApiService {
         @Part image: MultipartBody.Part,
     ): Call<FileUploadResponse>
 
-
-    @GET("/prediction/history")
+    @GET("/prediction/history/")
     fun fetchHistories(
         @Header("Authorization") token: String,
     ): Call<HistoryResponse>
 
+    @GET("/prediction/history/{id}")
+    fun fetchbyId(
+        @Header("Authorization") token: String,
+        @Path("id") id: String
+    ): Call<ResponDatabyID>
+
+    @DELETE("/prediction/history/{id}")
+    fun deletebyId(
+        @Header("Authorization") token: String,
+        @Path("id") id: String
+    ): Call<ResponseDelete>
 
 }
 

@@ -33,7 +33,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JeDerV1.NoActionBar">
         <activity
-            android:name=".ResultActivity"
+            android:name=".result.ResultActivity"
             android:exported="false" />
         <activity
             android:name=".login.LoginActivity"

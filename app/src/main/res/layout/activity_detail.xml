@@ -67,9 +67,9 @@
         android:id="@+id/buttonhome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         android:backgroundTint="@color/secondaryColor"
         android:text="@string/go_to_home"
-        android:layout_marginBottom="10dp"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -90,4 +90,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ytPlayer" />
 
+    <Button
+        android:id="@+id/buttondel"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_margin="16dp"
+        android:layout_marginBottom="2dp"
+        android:background="@drawable/ic_baseline_delete_24"
+        android:backgroundTint="@color/secondaryColor"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonhome"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonhome"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewresep" />
 </androidx.constraintlayout.widget.ConstraintLayout>

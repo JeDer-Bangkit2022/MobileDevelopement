@@ -15,7 +15,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
-import com.example.jederv1.ResultActivity
+import com.example.jederv1.result.ResultActivity
 import com.example.jederv1.api.ApiConfig
 import com.example.jederv1.api.FileUploadResponse
 import com.example.jederv1.createTempFile
@@ -79,7 +79,7 @@ class CameraUpload : AppCompatActivity() {
             startTakePhoto()
         }
         binding.uploadButton.setOnClickListener {
-//            uploadImage()
+            uploadImage()
         }
     }
 
@@ -143,8 +143,8 @@ class CameraUpload : AppCompatActivity() {
                                 val ytCode = res.ytCode
                                 AlertDialog.Builder(this@CameraUpload).apply {
                                     setTitle("Yeah!")
-                                    setMessage("Anda berhasil upload.")
-                                    setPositiveButton("Lanjut") { _, _ ->
+                                    setMessage("Upload Success.")
+                                    setPositiveButton("Next") { _, _ ->
                                         val intent = Intent(context, ResultActivity::class.java)
                                         val tokenformain = Bundle()
                                         tokenformain.putString("token", token)
@@ -177,7 +177,7 @@ class CameraUpload : AppCompatActivity() {
                     override fun onFailure(call: Call<FileUploadResponse>, t: Throwable) {
                         Toast.makeText(
                             this@CameraUpload,
-                            "Gagal instance Retrofit",
+                            "Instance Retrofit Failed",
                             Toast.LENGTH_SHORT
                         ).show()
                     }
@@ -185,7 +185,7 @@ class CameraUpload : AppCompatActivity() {
         } else {
             Toast.makeText(
                 this@CameraUpload,
-                "Silakan masukkan berkas gambar terlebih dahulu.",
+                "Please put in the picture first.",
                 Toast.LENGTH_SHORT
             ).show()
         }

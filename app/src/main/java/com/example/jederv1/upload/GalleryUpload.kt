@@ -12,7 +12,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.example.jederv1.ResultActivity
+import com.example.jederv1.result.ResultActivity
 import com.example.jederv1.api.ApiConfig
 import com.example.jederv1.api.FileUploadResponse
 import com.example.jederv1.databinding.ActivityGalleryUploadBinding
@@ -133,8 +133,8 @@ class GalleryUpload : AppCompatActivity() {
                                 val ytCode = res.ytCode
                                 AlertDialog.Builder(this@GalleryUpload).apply {
                                     setTitle("Yeah!")
-                                    setMessage("Anda berhasil upload.")
-                                    setPositiveButton("Lanjut") { _, _ ->
+                                    setMessage("Upload Success.")
+                                    setPositiveButton("Next") { _, _ ->
                                         val intent = Intent(context, ResultActivity::class.java)
                                         val tokenformain = Bundle()
                                         tokenformain.putString("token", token)
@@ -168,7 +168,7 @@ class GalleryUpload : AppCompatActivity() {
                         showLoading(false)
                         Toast.makeText(
                             this@GalleryUpload,
-                            "Gagal instance Retrofit",
+                            "Instance Retrofit Failed",
                             Toast.LENGTH_SHORT
                         ).show()
                     }
@@ -177,7 +177,7 @@ class GalleryUpload : AppCompatActivity() {
             showLoading(false)
             Toast.makeText(
                 this@GalleryUpload,
-                "Silakan masukkan berkas gambar terlebih dahulu.",
+                "Please put in the picture first.",
                 Toast.LENGTH_SHORT
             ).show()
         }

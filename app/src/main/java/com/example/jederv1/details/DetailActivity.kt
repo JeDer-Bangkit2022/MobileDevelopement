@@ -26,6 +26,10 @@ class DetailActivity : YouTubeBaseActivity() {
         val result = bundle?.getString("result").toString()
         val recipes = bundle?.getString("recipe").toString()
 
+        Log.d("codecode3", bundle.toString())
+        Log.d("codecode", ytCode)
+        Log.d("codecode1", result)
+        Log.d("codecode2", recipes)
 
 
         val judul = findViewById<TextView>(R.id.textViewjudul)
@@ -63,7 +67,6 @@ class DetailActivity : YouTubeBaseActivity() {
                     .show()
             }
         })
-
-
     }
+
 }
