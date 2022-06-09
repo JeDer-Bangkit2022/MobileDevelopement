@@ -135,6 +135,7 @@ class CameraUpload : AppCompatActivity() {
                             showLoading(false)
                             val res = response.body()
                             if (res != null && res.success) {
+                                val id = res.id
                                 val result = res.result
                                 val resAcc = res.resultAccuracy
                                 val imageUrl = res.imageUrl
@@ -147,6 +148,7 @@ class CameraUpload : AppCompatActivity() {
                                     setPositiveButton("Next") { _, _ ->
                                         val intent = Intent(context, ResultActivity::class.java)
                                         val tokenformain = Bundle()
+                                        tokenformain.putString("id", id)
                                         tokenformain.putString("token", token)
                                         tokenformain.putString("result", result)
                                         tokenformain.putString("resAcc", resAcc)

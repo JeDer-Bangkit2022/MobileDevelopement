@@ -24,6 +24,8 @@ data class FileUploadResponse(
     val description: String,
     @field:SerializedName("ytCode")
     val ytCode: String,
+    @field:SerializedName("id")
+    val id: String,
 )
 
 
@@ -118,7 +120,7 @@ class ApiConfig {
             .addInterceptor(loggingInterceptor)
             .build()
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://named-reporter-343719.as.r.appspot.com")
+            .baseUrl("https://capstone-project-jeder.as.r.appspot.com")
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()

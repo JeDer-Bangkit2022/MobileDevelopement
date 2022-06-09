@@ -45,15 +45,5 @@
         app:layout_constraintStart_toStartOf="@+id/foodname"
         app:layout_constraintTop_toBottomOf="@+id/foodname" />
 
-    <Button
-        android:id="@+id/buttonmodel"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_margin="16dp"
-        android:background="@drawable/ic_baseline_delete_24"
-        android:backgroundTint="@color/secondaryColor"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

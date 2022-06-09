@@ -30,7 +30,7 @@ import retrofit2.Response
 
 private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
 
-class HistoryActivity : AppCompatActivity() {
+class HistoryActivity : AppCompatActivity(){
     private lateinit var binding: ActivityHistoryBinding
     private lateinit var historyViewModel: HistoryViewModel
     private lateinit var responData: ArrayList<ResponData>
@@ -95,6 +95,7 @@ class HistoryActivity : AppCompatActivity() {
                                                 userdata.putString("result", result)
                                                 userdata.putString("recipe", recipe)
                                                 userdata.putString("ytCode", ytCode)
+                                                userdata.putString("token", token)
                                                 Log.d("AWAWAW", result)
                                                 Log.d("AWAWAW1", recipe)
                                                 Log.d("AWAWAW2", ytCode)
@@ -125,9 +126,7 @@ class HistoryActivity : AppCompatActivity() {
                         binding.rvHistory.apply {
                             layoutManager = LinearLayoutManager(this@HistoryActivity)
                             adapterHistory.notifyItemChanged(responData.size)
-//                            adapterHistory.stateRestorationPolicy = RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
                             adapter = adapterHistory
-//                            adapter.notifyItemRangeInserted(0,responData.size+1)
                         }
                     }
                 }
@@ -151,6 +150,7 @@ class HistoryActivity : AppCompatActivity() {
             binding.progressBar.visibility = View.INVISIBLE
         }
     }
+
 }
 
 

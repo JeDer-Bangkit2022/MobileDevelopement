@@ -42,10 +42,14 @@ class ResultActivity : AppCompatActivity() {
         with(binding) {
             descripsi.text = desc
             textViewjudul.text = result
-            if (resAcc != null){
-                akurasi.text = "Akurasi : $resAcc"
-            }else{
-                akurasi.visibility = View.INVISIBLE
+            if (resAcc != null) {
+                val acc = resAcc.toFloat()
+                if (acc <= 80.000){
+                    "Warning!... Akurasi : $resAcc".also { akurasi.text = it }
+                    akurasi.visibility = View.VISIBLE
+                }else if (acc > 80.000){
+                    akurasi.visibility = View.INVISIBLE
+                }
             }
 
         }
@@ -66,6 +70,5 @@ class ResultActivity : AppCompatActivity() {
             }
             startActivity(intent)
         }
-
     }
 }

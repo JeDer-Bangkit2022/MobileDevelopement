@@ -37,7 +37,8 @@
         app:layout_constraintBottom_toTopOf="@+id/buttonhome"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ytPlayer" />
+        app:layout_constraintTop_toBottomOf="@+id/ytPlayer"
+        android:contentDescription="@string/backgroundofresep" />
 
     <ScrollView
         android:id="@+id/scrollView2"
@@ -102,4 +103,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/buttonhome"
         app:layout_constraintTop_toBottomOf="@+id/imageViewresep" />
+    <ProgressBar
+        style="?android:attr/progressBarStyle"
+        android:id="@+id/progressBarDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="invisible" />
 </androidx.constraintlayout.widget.ConstraintLayout>
